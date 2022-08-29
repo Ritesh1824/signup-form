@@ -18,3 +18,17 @@ Build and run project :
         - run ng serve command 
         - open project in http://localhost:4200/ 
 
+Form Fields: 
+    - First name :  All allowd , required
+    - Last name :  All allowd , required
+    - Password validation:
+        - Should be a minimum of eight characters,
+        - Should contain lower and uppercase letters, 
+        - Should not contain user’s first or last name.
+    - Email : Default Form email validation 
+       - Disallow local-part (the part before the @ symbol) to begin or end with a period (.).
+       - Disallow local-part to be longer than 64 characters.
+       - Disallow the whole address to be longer than 254 characters.
+    - Sign up Button 
+        - Once click on sign up it will send form details to https://demo-api.vercel.app/users
+
