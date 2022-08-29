@@ -1,0 +1,61 @@
+<div class="container" >
+    <div class="row">
+        <div class="card col-md-5 mx-auto">
+            <div class ="card-header">
+                <h3>Sign Up!</h3>
+            </div>
+            <div class="card-body">
+                <form class="form " [formGroup]="signUpForm">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" class="form-control" formControlName="firstName">
+                        <span class="text-danger"
+                            *ngIf="signUpForm.get('firstName').touched  && signUpForm.get('firstName').errors?.['required']">
+                            First Name is required
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control" formControlName="lastName">
+                        <span class="text-danger"
+                            *ngIf="signUpForm.get('lastName').touched  && signUpForm.get('lastName').errors?.['required']">
+                            Last Name is required
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" class="form-control" formControlName="email">
+                        <div  *ngIf="signUpForm.get('email').touched && signUpForm.get('email').invalid" >
+                            <span class="text-danger" *ngIf=" signUpForm.get('email').errors?.['required']">
+                                Email is required
+                            </span>
+                            <span class="text-danger" *ngIf=" signUpForm.get('email').errors?.['email']">
+                                Please enter valid email
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" formControlName="password">
+                        <div  *ngIf="signUpForm.get('password').touched && signUpForm.get('password').invalid" >
+                            <span class="text-danger" *ngIf=" signUpForm.get('password').errors?.['required']">
+                                Password is required
+                            </span>
+                            <span class="text-danger" *ngIf=" signUpForm.get('password').errors?.['invalidPassword']">
+                                Password should have minimum 8 characters, should contain lower and uppercase letters.
+                            </span>
+                            <span class="text-danger" *ngIf=" signUpForm.get('password').errors?.['containsName']">
+                                Password Should not contain user first or last name.
+                            </span>                           
+                        </div>
+                    </div>
+                    
+                    <div class="form-group mt-3">
+                        <button type="submit" class="btn btn-success" (click) = "onSubmit()">Sign up</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
